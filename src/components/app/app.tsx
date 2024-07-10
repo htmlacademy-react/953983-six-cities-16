@@ -1,12 +1,9 @@
 import MainPage from '../../pages/main-page/main-page';
+import { DATA } from '../mock-data/const.ts';
 
-type AppProps = {
-  placesFound: number;
-}
-
-function App({placesFound}: AppProps): JSX.Element {
+function App(): JSX.Element {
   return (
-    <MainPage placesFound={placesFound} />
+    <MainPage offersData={DATA} />
   );
 }
 
