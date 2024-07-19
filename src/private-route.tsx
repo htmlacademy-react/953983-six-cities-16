@@ -1,4 +1,5 @@
 import {Navigate} from 'react-router-dom';
+import { RoutesValues } from './components/routes-values';
 
 type PrivateRouteProps = {
   children: JSX.Element;
@@ -7,7 +8,7 @@ type PrivateRouteProps = {
 function PrivateRoute({children}: PrivateRouteProps): JSX.Element {
   const hasAccess = true;
 
-  return hasAccess ? children : <Navigate to={'/login'} />;
+  return hasAccess ? children : <Navigate to={RoutesValues.LOGIN} />;
 }
 
 export default PrivateRoute;
