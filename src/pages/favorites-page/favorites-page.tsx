@@ -1,6 +1,11 @@
 import { Header } from '../../components/header';
+import { CardProps } from '../../components/item-card/item-card';
 
-function FavoritesPage(): JSX.Element {
+type OfferProps = {
+  offersData: CardProps[];
+};
+
+function FavoritesPage({ offersData }: OfferProps): JSX.Element {
   return (
     <>
       <Header />

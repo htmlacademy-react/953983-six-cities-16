@@ -6,7 +6,7 @@ import NotFound from '../../pages/not-found/not-found';
 import PrivateRoute from '../../private-route.tsx';
 import {RoutesValues} from '../routes-values.ts';
 
-import { DATA } from '../mock-data/const.ts';
+import { DATA } from '../mocks/offers.ts';
 
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
@@ -18,11 +18,11 @@ function App(): JSX.Element {
         <Route path={RoutesValues.LOGIN} element={<LoginPage />} />
         <Route path={RoutesValues.FAVORITES} element={
           <PrivateRoute>
-            <FavoritesPage />
+            <FavoritesPage offersData={DATA}/>
           </PrivateRoute>
         }
         />
-        <Route path={RoutesValues.OFFER} element={<OfferPage />} />
+        <Route path={RoutesValues.OFFER} element={<OfferPage offersData={DATA}/>} />
         <Route path={RoutesValues.NOTFOUND} element={<NotFound />} />
       </Routes>
     </BrowserRouter>

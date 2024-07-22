@@ -1,9 +1,15 @@
-import ItemCard, { CardProps } from '../../components/item-card/item-card';
+import { CardProps } from '../../components/item-card/item-card';
 import { Header } from '../../components/header/index';
+import OffersList from '../../components/offers-list/offers-list';
+import { Link } from 'react-router-dom';
+import { RoutesValues } from '../../components/routes-values';
 
-type MainPageProps = {
+export type MainPageProps = {
   offersData: CardProps[];
 }
+
+const CITIES = ['Paris', 'Cologne', 'Brussels', 'Amsterdam', 'Hamburg', 'Dusseldorf'];
+const ACTIVE_CITY = CITIES[0];
 
 function MainPage({ offersData }: MainPageProps): JSX.Element {
   return (
@@ -14,36 +20,16 @@ function MainPage({ offersData }: MainPageProps): JSX.Element {
         <div className="tabs">
           <section className="locations container">
             <ul className="locations__list tabs__list">
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Paris</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Cologne</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Brussels</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item tabs__item--active" href="#">
-                  <span>Amsterdam</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Hamburg</span>
-                </a>
-              </li>
-              <li className="locations__item">
-                <a className="locations__item-link tabs__item" href="#">
-                  <span>Dusseldorf</span>
-                </a>
-              </li>
+              {CITIES.map((cityName) => (
+                <li key={cityName} className="locations__item">
+                  <Link
+                    to={RoutesValues.ROOT}
+                    className={`locations__item-link tabs__item${ACTIVE_CITY === cityName ? ' tabs__item--active' : ''}`}
+                  >
+                    <span>{cityName}</span>
+                  </Link>
+                </li>
+              ))}
             </ul>
           </section>
         </div>
@@ -51,7 +37,7 @@ function MainPage({ offersData }: MainPageProps): JSX.Element {
           <div className="cities__places-container container">
             <section className="cities__places places">
               <h2 className="visually-hidden">Places</h2>
-              <b className="places__found">{offersData.length} places to stay in Amsterdam</b>
+              <b className="places__found">{offersData.length} places to stay in {ACTIVE_CITY}</b>
               <form className="places__sorting" action="#" method="get">
                 <span className="places__sorting-caption">Sort by</span>
                 <span className="places__sorting-type" tabIndex={0}>
@@ -67,10 +53,7 @@ function MainPage({ offersData }: MainPageProps): JSX.Element {
                   <li className="places__option" tabIndex={0}>Top rated first</li>
                 </ul>
               </form>
-              <div className="cities__places-list places__list tabs__content">
-                {offersData.map((item) => (
-                  <ItemCard key={item.id} data={item} />))}
-              </div>
+              <OffersList offersData={offersData} />
             </section>
             <div className="cities__right-section">
               <section className="cities__map map"></section>
