@@ -28,17 +28,22 @@ function ItemCard({
   data,
   onHandlerChangeIdActiveCard,
   onHandlerRemoveActiveCard,
+  className,
 }: {
   data: CardProps;
-  onHandlerChangeIdActiveCard: () => void;
-  onHandlerRemoveActiveCard: () => void;
+  onHandlerChangeIdActiveCard?: () => void;
+  onHandlerRemoveActiveCard?: () => void;
+  className?: string;
 }): JSX.Element {
+  const imgWidth: string = className === 'favorites' ? '150' : '260';
+  const imgHeight: string = className === 'favorites' ? '110' : '200';
+
   return (
     <Link
-      className="cities__card place-card"
+      className={`${className ? className : 'cities'}__card place-card`}
       to={`${RoutesValues.OFFER}/${data.id}` }
-      onMouseEnter={onHandlerChangeIdActiveCard}
-      onMouseLeave={onHandlerRemoveActiveCard}
+      onMouseEnter={onHandlerChangeIdActiveCard && onHandlerChangeIdActiveCard}
+      onMouseLeave={onHandlerRemoveActiveCard && onHandlerRemoveActiveCard}
     >
       {data.isPremium
         ?
@@ -49,7 +54,7 @@ function ItemCard({
         null}
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
-          <img className="place-card__image" src="img/apartment-01.jpg" width="260" height="200" alt="Place image" />
+          <img className="place-card__image" src={data.previewImage} width={imgWidth} height={imgHeight} alt="Place image" />
         </a>
       </div>
       <div className="place-card__info">

@@ -3,5 +3,6 @@ export enum RoutesValues {
   LOGIN = '/login',
   FAVORITES = '/favorites',
   OFFER = '/offer',
+  OFFER_ID = '/offer/:id',
   NOTFOUND = '*'
 }

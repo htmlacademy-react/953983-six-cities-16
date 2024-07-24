@@ -3,7 +3,6 @@ import ItemCard, { CardProps } from '../item-card/item-card';
 
 const OffersList = ({ offersData } : { offersData : CardProps[] }) => {
   const [activeCard, setActiveCard] = useState<undefined | string>(undefined);
-  console.log(activeCard);
 
   const changeIdActiveCard = (id: string) => {
     setActiveCard(id);
@@ -17,6 +16,7 @@ const OffersList = ({ offersData } : { offersData : CardProps[] }) => {
     <div className="cities__places-list places__list tabs__content">
       {offersData.map((item) => (
         <ItemCard
+          type='cities'
           onHandlerChangeIdActiveCard={() => changeIdActiveCard(item.id)}
           onHandlerRemoveActiveCard={removeIdActiveCard}
           key={item.id}

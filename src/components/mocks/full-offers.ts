@@ -1,4 +1,4 @@
-export const FULLOFFER = [
+export const FULL_OFFER = [
   {
     'id': '1',
     'title': 'Beautiful & luxurious studio at great location',
@@ -23,17 +23,18 @@ export const FULLOFFER = [
     'description': 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam.',
     'bedrooms': 3,
     'goods': [
-      'Heating'
+      'Heating',
+      'Wi-fi'
     ],
     'host': {
       'name': 'Oliver Conner',
-      'avatarUrl': 'https://url-to-image/image.png',
-      'isPro': false
+      'avatarUrl': 'https://yt3.googleusercontent.com/-CFTJHU7fEWb7BYEb6Jh9gm1EpetvVGQqtof0Rbh-VQRIznYYKJxCaqv_9HeBcmJmIsp2vOO9JU=s900-c-k-c0x00ffffff-no-rj',
+      'isPro': true
     },
     'images': [
       'https://url-to-image/image.png'
     ],
-    'maxAdults': 4
+    'maxAdults': 5
   },
   {
     'id': '2',
@@ -69,7 +70,7 @@ export const FULLOFFER = [
     'images': [
       'https://url-to-image/image.png'
     ],
-    'maxAdults': 2
+    'maxAdults': 3
   },
   {
     'id': '3',
@@ -105,7 +106,7 @@ export const FULLOFFER = [
     'images': [
       'https://url-to-image/image.png'
     ],
-    'maxAdults': 4
+    'maxAdults': 7
   },
   {
     'id': '4',
@@ -141,6 +142,6 @@ export const FULLOFFER = [
     'images': [
       'https://url-to-image/image.png'
     ],
-    'maxAdults': 4
+    'maxAdults': 1
   },
 ];
