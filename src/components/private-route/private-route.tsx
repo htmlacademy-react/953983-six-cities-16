@@ -1,5 +1,5 @@
 import {Navigate} from 'react-router-dom';
-import { RoutesValues } from './components/routes-values';
+import { RoutesValues } from '../routes-values';
 
 type PrivateRouteProps = {
   children: JSX.Element;
